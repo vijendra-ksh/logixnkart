@@ -13,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Infrastructure.Data;
+using Core.Interfaces;
+
 namespace API
 {
     public class Startup
@@ -28,6 +30,7 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddScoped<IProductRepository,ProductRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
